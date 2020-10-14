@@ -37,22 +37,22 @@ class BestGymEverTest {
     }
 
     @Test
-    public final void generateListTest() {
-        List<Medlem> members = g.generateList(g.stringtoFileName("customers.txt"));
+    public final void generateListFromFileTest() {
+        List<Medlem> members = g.generateListFromFile(g.stringtoFilePathName("customers.txt"));
         assertTrue(members.size() == 15);
         assertFalse(members.size() == 13);
     }
 
 
     @Test
-    public final void searchUserTest() {
-        List<Medlem> member = g.generateList(g.stringtoFileName("customers.txt"));
+    public final void searchUserFromListTest() {
+        List<Medlem> member = g.generateListFromFile(g.stringtoFilePathName("customers.txt"));
         String helaNamnet = "";
         String personNr = "";
         for (Medlem m : member) {
-            if (m.getEntireName().equals("Alhambra Aromes") || m.getPersonNr().equals("7603021234")) {
+            if (m.getFörnamnEfternamn().equals("Alhambra Aromes") || m.getPersonNr().equals("7603021234")) {
                helaNamnet = m.getFörnamn() + " " + m.getEfternamn();
-                personNr = m.getPersonNr();
+               personNr = m.getPersonNr();
             }
         }
         assertEquals(helaNamnet, "Alhambra Aromes");
@@ -61,8 +61,8 @@ class BestGymEverTest {
 
 
     @Test
-    public final void printHistoryTest() {
-        final String usernamePath = m.getEntireName() + ".txt";
+    public final void registerMemberPrintTest() {
+        final String usernamePath = m.getFörnamnEfternamn() + ".txt";
         String message = "";
 
         if (new File(usernamePath).isFile()) {
@@ -70,17 +70,17 @@ class BestGymEverTest {
                 message = LocalDate.now().toString();
             } catch (IOException e) {
                 e.printStackTrace();
-                message = g.error();
+                message = g.errorMessage();
             }
         } else {
             try (PrintWriter ut = new PrintWriter(new BufferedWriter(new FileWriter(usernamePath)))) {
-                message = m.getPersonNr() + ", " + m.getEntireName() + "\n" + LocalDate.now().toString();
+                message = m.getPersonNr() + ", " + m.getFörnamnEfternamn() + "\n" + LocalDate.now().toString();
             } catch (IOException e) {
                 e.printStackTrace();
-                message = g.error();
+                message = g.errorMessage();
             }
         }
-        assertEquals(message, LocalDate.now().toString() + "\n");
+        assertEquals(message, LocalDate.now().toString());
     }
 
 

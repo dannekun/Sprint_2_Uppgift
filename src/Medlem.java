@@ -25,6 +25,6 @@ public class Medlem extends Person{
         setFörnamn(förnamn);
         setEfternamn(efternamn);
         setMedlemskap(medlemskap);
-        setEntireName(förnamn, efternamn);
+        setFörnamnEfternamn(förnamn, efternamn);
     }
 }

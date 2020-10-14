@@ -9,14 +9,14 @@ public class Person {
     private String personNr;
     private String förnamn;
     private String efternamn;
-    private String entireName;
+    private String förnamnEfternamn;
 
-    public String getEntireName() {
-        return entireName;
+    public String getFörnamnEfternamn() {
+        return förnamnEfternamn;
     }
 
-    public void setEntireName(String firstname, String lastname) {
-        this.entireName = firstname + " " + lastname;
+    public void setFörnamnEfternamn(String firstname, String lastname) {
+        this.förnamnEfternamn = firstname + " " + lastname;
     }
 
     public String getPersonNr() {
@@ -46,6 +46,6 @@ public class Person {
 
     @Override
     public String toString(){
-        return getEntireName();
+        return getFörnamnEfternamn();
     }
 }
