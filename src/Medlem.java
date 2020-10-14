@@ -5,7 +5,7 @@
  * Project: Inlämningsuppgift 2
  * Copyright: MIT
  */
-public class Medlem extends Person{
+public class Medlem extends Person {
     private String medlemskap;
 
     public String getMedlemskap() {
@@ -16,11 +16,11 @@ public class Medlem extends Person{
         this.medlemskap = medlemskap;
     }
 
-    Medlem(){
+    Medlem() {
 
     }
 
-    Medlem(String personNr, String förnamn, String efternamn, String medlemskap){
+    Medlem(String personNr, String förnamn, String efternamn, String medlemskap) {
         setPersonNr(personNr);
         setFörnamn(förnamn);
         setEfternamn(efternamn);

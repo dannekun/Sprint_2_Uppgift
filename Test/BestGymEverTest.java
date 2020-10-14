@@ -21,14 +21,12 @@ class BestGymEverTest {
             "2019-10-03");
 
 
-
-
     @Test
     public final void compareDateTest() {
         String message = "";
 
-        LocalDate compareInDate = LocalDate.of(2019,05,05);
-        LocalDate todayInDate = LocalDate.of(2020,10,03);
+        LocalDate compareInDate = LocalDate.of(2019, 05, 05);
+        LocalDate todayInDate = LocalDate.of(2020, 10, 03);
         todayInDate = todayInDate.minusYears(1);
 
         boolean isItBefore = todayInDate.isBefore(compareInDate);
@@ -51,8 +49,8 @@ class BestGymEverTest {
         String personNr = "";
         for (Medlem m : member) {
             if (m.getFörnamnEfternamn().equals("Alhambra Aromes") || m.getPersonNr().equals("7603021234")) {
-               helaNamnet = m.getFörnamn() + " " + m.getEfternamn();
-               personNr = m.getPersonNr();
+                helaNamnet = m.getFörnamn() + " " + m.getEfternamn();
+                personNr = m.getPersonNr();
             }
         }
         assertEquals(helaNamnet, "Alhambra Aromes");
@@ -82,8 +80,6 @@ class BestGymEverTest {
         }
         assertEquals(message, LocalDate.now().toString());
     }
-
-
 
 
 }

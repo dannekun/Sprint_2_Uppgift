@@ -37,7 +37,9 @@ public class BestGymEver {
         return "Kunden är en före detta medlem. Årsavgiften betalades för över ett år sedan.";
     }
 
-    public String radbrytning(){return "------------------------------";}
+    public String radbrytning() {
+        return "------------------------------";
+    }
 
     public String getPathFromString() {
         return pathFromString;
