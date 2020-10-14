@@ -92,11 +92,11 @@ public class BestGymEver {
         }
     }
 
-    public void searchUserFromList(String förnam, String efternamn, String personNr) {
+    public void searchUserFromList(String förnamn, String efternamn, String personNr) {
         List<Medlem> members = generateListFromFile(stringtoFilePathName(getPathFromString()));
         boolean didYouFindMember = false;
         String message = "";
-        String förnamnEfternamn = förnam.trim() + " " + efternamn.trim();
+        String förnamnEfternamn = förnamn.trim() + " " + efternamn.trim();
         for (Medlem m : members) {
             if (m.getFörnamnEfternamn().toLowerCase().equals(förnamnEfternamn.toLowerCase()) || m.getPersonNr().equals(personNr)) {
                 message = compareDate(m.getMedlemskap(), m);
@@ -111,13 +111,13 @@ public class BestGymEver {
 
     }
 
-    public String compareDate(String compare, Medlem m) {
+    public String compareDate(String dateToCompare, Medlem m) {
         String message = "";
 
-        LocalDate compareInDate = LocalDate.parse(compare);
-        LocalDate todayInDate = LocalDate.now();
-        todayInDate = todayInDate.minusYears(1);
-        boolean isItBefore = todayInDate.isBefore(compareInDate);
+        LocalDate compareInLocalDate = LocalDate.parse(dateToCompare);
+        LocalDate todayInLocalDate = LocalDate.now();
+        todayInLocalDate = todayInLocalDate.minusYears(1);
+        boolean isItBefore = todayInLocalDate.isBefore(compareInLocalDate);
 
         if (isItBefore == true) {
             registerMemberPrint(m);
@@ -130,25 +130,25 @@ public class BestGymEver {
 
     public void checkMember() {
         Scanner in = new Scanner(System.in);
-        String personnr = "";
-        String first = "";
-        String last = "";
-        String entireName = "";
+        String tempPersonnr = "";
+        String tempFörnamn = "";
+        String tempEfternamn = "";
+        String tempFörnamnEfternamn = "";
 
         while (true) {
             System.out.print("Skriv ett namn eller personnr: ");
             try {
                 if (in.hasNextDouble()) {
-                    personnr = in.next();
+                    tempPersonnr = in.next();
                     break;
                 } else if (in.hasNextLine()) {
-                    entireName = in.nextLine();
-                    String[] words = entireName.split(" ");
-                    first = words[0];
+                    tempFörnamnEfternamn = in.nextLine();
+                    String[] words = tempFörnamnEfternamn.split(" ");
+                    tempFörnamn = words[0];
                     if (!(words.length >= 2)) {
                         System.out.println(errorMessage());
                     } else {
-                        last = words[1];
+                        tempEfternamn = words[1];
                         break;
                     }
                 }
@@ -157,7 +157,7 @@ public class BestGymEver {
                 System.out.println(errorMessage());
             }
         }
-        searchUserFromList(first, last, personnr);
+        searchUserFromList(tempFörnamn, tempEfternamn, tempPersonnr);
         while (checkForAnotherMember() == true) {
             checkForAnotherMember();
         }
