@@ -92,16 +92,16 @@ public class BestGymEver {
 
     public void searchUserFromList(String förnam, String efternamn, String personNr) {
         List<Medlem> members = generateListFromFile(stringtoFilePathName(getPathFromString()));
-        boolean didYouFind = false;
+        boolean didYouFindMember = false;
         String message = "";
         String förnamnEfternamn = förnam.trim() + " " + efternamn.trim();
         for (Medlem m : members) {
             if (m.getFörnamnEfternamn().toLowerCase().equals(förnamnEfternamn.toLowerCase()) || m.getPersonNr().equals(personNr)) {
                 message = compareDate(m.getMedlemskap(), m);
-                didYouFind = true;
+                didYouFindMember = true;
             }
         }
-        if (didYouFind == false) {
+        if (didYouFindMember == false) {
             message = memberNotFound();
         }
 
