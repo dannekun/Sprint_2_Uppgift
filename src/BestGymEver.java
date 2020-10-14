@@ -21,7 +21,7 @@ public class BestGymEver {
         return radbrytning() + "Det blev något fel!" + radbrytning();
     }
 
-    public String notFound() {
+    public String memberNotFound() {
         return "Kunden är inte medlem här.";
     }
 
@@ -102,7 +102,7 @@ public class BestGymEver {
             }
         }
         if (didYouFind == false) {
-            message = notFound();
+            message = memberNotFound();
         }
 
         System.out.println(message);
