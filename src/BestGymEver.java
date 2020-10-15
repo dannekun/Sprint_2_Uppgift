@@ -171,6 +171,7 @@ public class BestGymEver {
         boolean masterAnswer = true;
         if (in.hasNextLine()) {
             answer = in.nextLine();
+            answer = answer.toLowerCase();
 
             if (answer.equals("nej")) {
                 System.out.println(byeMessage());
